@@ -11,12 +11,14 @@ namespace EmployeeWage
         public static int EmpWage()
         {
             int empHours = 0;
+            int totalEmpHours = 0;
             int totalEmpWage = 0;
             int wageCalculated = 0;
+            int totalDays = 0;
 
-            for (int i = 0; i < 20; i++)
+            while(totalEmpHours <=100 || totalDays <=20)
             {
-
+                totalDays++;
 
                 Random rnd = new Random();
                 int empCheck = rnd.Next(0, 2);
@@ -32,6 +34,7 @@ namespace EmployeeWage
                         empHours = 0;
                         break;
                 }
+                totalEmpHours = totalEmpHours + empHours;
                 wageCalculated = empHours * 20;
                 totalEmpWage = totalEmpWage + wageCalculated;
                 
