@@ -19,8 +19,17 @@ namespace EmployeeWage
         }
         static void Main(string[] args)
         {
+
             String st = Attendance();
             Console.WriteLine(st);
+
+            
+            Console.WriteLine("Welcome to Employee Wage Computation Program");
+
+
         }
+       
+        
+
     }
 }
