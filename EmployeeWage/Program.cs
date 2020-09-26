@@ -6,13 +6,29 @@ namespace EmployeeWage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Part time Employee wage is "+ PartTimeWage());
+            Console.WriteLine(" Employee wage is "+ EmpWage());
         }
-        public static int PartTimeWage()
+        public static int EmpWage()
         {
+            int empHours = 0;
+            
             Random rnd = new Random();
-            int wage_calculated = rnd.Next(0, 9) * 20;
-            return wage_calculated;
+            int empCheck = rnd.Next(0, 2) ;
+            switch (empCheck)
+            {
+                case 0:
+                    empHours = 4;
+                    break;
+                case 1:
+                    empHours = 8;
+                    break;
+                default:
+                    empHours = 0;
+                    break;
+            }
+            int wageCalculated = empHours * 20;
+            
+            return wageCalculated;
 
         }
         
