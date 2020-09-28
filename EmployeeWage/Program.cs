@@ -6,17 +6,13 @@ namespace EmployeeWage
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" Employee wage is "+ EmpWage());
-        }
-        public static int EmpWage()
-        {
             int empHours = 0;
             int totalEmpHours = 0;
             int totalEmpWage = 0;
             int wageCalculated = 0;
             int totalDays = 0;
 
-            while(totalEmpHours <=100 || totalDays <=20)
+            while (totalEmpHours <= 100 || totalDays <= 20)
             {
                 totalDays++;
 
@@ -37,11 +33,13 @@ namespace EmployeeWage
                 totalEmpHours = totalEmpHours + empHours;
                 wageCalculated = empHours * 20;
                 totalEmpWage = totalEmpWage + wageCalculated;
-                
+
 
             }
-            return totalEmpWage;
+           
+            Console.WriteLine(" Employee wage is "+ totalEmpWage);
         }
+        
         
     }
 }
