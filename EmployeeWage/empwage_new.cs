@@ -9,6 +9,7 @@ namespace EmployeeWage
     class empwage_new
     {
         ArrayList company_list = new ArrayList();
+        Dictionary<String,int> TotalWagesList = new Dictionary<string, int>();
         private String current_company;
         private int current_empRatePerHour;
         private int current_numOfWorkingDays = 0;
@@ -27,6 +28,14 @@ namespace EmployeeWage
             emp.current_numOfWorkingDays = current_numOfWorkingDays;
             company_list.Add(emp);
 
+        }
+
+        public void getEmpWage()
+        {
+            foreach(KeyValuePair<String,int> i in TotalWagesList)
+            {
+                Console.WriteLine(" Employee wage of Company " + i.Key+ " is: " + i.Value);
+            }
         }
         public void computeEmpWage()
         {
@@ -62,7 +71,8 @@ namespace EmployeeWage
 
 
                 }
-                Console.WriteLine(" Employee wage of Company " + x.current_company + " is: " + totalEmpWage);
+                TotalWagesList.Add(x.current_company,totalEmpWage);
+                
 
             }
         }

@@ -15,6 +15,7 @@ namespace EmployeeWage
             emp1.addCompanyDetails("asdv", 10, 100, 80);
             emp1.addCompanyDetails("jgh", 40, 50, 40);
             emp1.computeEmpWage();
+            emp1.getEmpWage();
 
         }
         
