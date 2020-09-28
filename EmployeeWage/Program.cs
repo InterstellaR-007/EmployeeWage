@@ -16,7 +16,7 @@ namespace EmployeeWage
             int wageCalculated = 0;
             int totalDays = 0;
 
-            while(totalEmpHours <=100 || totalDays <=20)
+            while(totalEmpHours <=100 && totalDays <=20)
             {
                 totalDays++;
 
