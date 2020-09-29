@@ -30,10 +30,11 @@ namespace EmployeeWage
 
         }
 
-        public void getEmpWage()
+        public void getEmpWage(String company)
         {
             foreach(KeyValuePair<String,int> i in TotalWagesList)
             {
+                if(company.CompareTo(i.Key)==0)
                 Console.WriteLine(" Employee wage of Company " + i.Key+ " is: " + i.Value);
             }
         }
