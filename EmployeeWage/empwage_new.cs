@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmployeeWage
 {
-    class empwage_new
+    class empwage_new:InterfaceCompany
     {
         ArrayList company_list = new ArrayList();
         private String current_company;
@@ -15,10 +15,7 @@ namespace EmployeeWage
         private int current_maxNumberOfHours = 0;
 
         ////String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours
-        public empwage_new()
-        {
-
-        }
+        
         public void addCompanyDetails(String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours) {
             empwage_new emp = new empwage_new();
             emp.current_company = company;
