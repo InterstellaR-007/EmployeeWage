@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmployeeWage
 {
-    class empwage_new
+    class empwage_new:InterfaceCompany
     {
         ArrayList company_list = new ArrayList();
         Dictionary<String,int> TotalWagesList = new Dictionary<string, int>();
