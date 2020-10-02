@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EmployeeWage
 {
-    class empwage_new
+    class EmpWage_Builder
     {
         ArrayList company_list = new ArrayList();
         private String current_company;
@@ -15,22 +15,19 @@ namespace EmployeeWage
         private int current_maxNumberOfHours = 0;
 
         ////String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours
-        public empwage_new()
+        public EmpWage_Builder()
         {
 
         }
-        public void addCompanyDetails(String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours) {
-            empwage_new emp = new empwage_new();
-            emp.current_company = company;
-            emp.current_empRatePerHour = empRatePerHour;
-            emp.current_maxNumberOfHours = maxNumberOfHours;
-            emp.current_numOfWorkingDays = current_numOfWorkingDays;
-            company_list.Add(emp);
+        public void addCompanyDetails(CompanyEmpWage companyObject) {
+            
+
+            company_list.Add(companyObject);
 
         }
         public void computeEmpWage()
         {
-            foreach (empwage_new x in company_list)
+            foreach (CompanyEmpWage x in company_list)
             {
                 int empHours = 0;
                 int totalEmpHours = 0;
@@ -38,7 +35,7 @@ namespace EmployeeWage
                 int wageCalculated = 0;
                 int totalDays = 0;
 
-                while (totalEmpHours <= x.current_maxNumberOfHours && totalDays <= x.current_numOfWorkingDays)
+                while (totalEmpHours <= x.maxNumberOfHours && totalDays <= x.numOfWorkingDays)
                 {
                     totalDays++;
 
@@ -57,12 +54,12 @@ namespace EmployeeWage
                             break;
                     }
                     totalEmpHours = totalEmpHours + empHours;
-                    wageCalculated = empHours * x.current_empRatePerHour;
+                    wageCalculated = empHours * x.empRatePerHour;
                     totalEmpWage = totalEmpWage + wageCalculated;
 
 
                 }
-                Console.WriteLine(" Employee wage of Company " + x.current_company + " is: " + totalEmpWage);
+                Console.WriteLine(" Employee wage of Company " + x.company + " is: " + totalEmpWage);
 
             }
         }
