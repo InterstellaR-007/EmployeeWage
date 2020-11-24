@@ -8,28 +8,45 @@ namespace EmployeeWage
 {
     class empwage_new
     {
+
+        /// <summary>
+        /// The company list
+        /// </summary>
         ArrayList company_list = new ArrayList();
+        /// <summary>
+        /// The total wages count of Employees Company Wise
+        /// </summary>
         Dictionary<String,int> TotalWagesList = new Dictionary<string, int>();
+
         private String current_company;
         private int current_empRatePerHour;
         private int current_numOfWorkingDays = 0;
         private int current_maxNumberOfHours = 0;
 
-        ////String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours
-        public empwage_new()
-        {
+        
 
-        }
+        /// <summary>
+        /// Adds the company details.
+        /// </summary>
+        /// <param name="company">The company.</param>
+        /// <param name="empRatePerHour">The emp rate per hour.</param>
+        /// <param name="numOfWorkingDays">The number of working days.</param>
+        /// <param name="maxNumberOfHours">The maximum number of hours.</param>
         public void addCompanyDetails(String company, int empRatePerHour, int numOfWorkingDays, int maxNumberOfHours) {
-            empwage_new emp = new empwage_new();
-            emp.current_company = company;
-            emp.current_empRatePerHour = empRatePerHour;
-            emp.current_maxNumberOfHours = maxNumberOfHours;
-            emp.current_numOfWorkingDays = current_numOfWorkingDays;
-            company_list.Add(emp);
+
+            CompanyDetail companyDetail = new CompanyDetail();
+            companyDetail.company = company;
+            companyDetail.empRatePerHour = empRatePerHour;
+            companyDetail.numOfWorkingDays = numOfWorkingDays;
+            companyDetail.maxNumberOfHours = maxNumberOfHours;
+            company_list.Add(companyDetail);
 
         }
 
+        /// <summary>
+        /// Gets the emp wage.
+        /// </summary>
+        /// <param name="company">The company.</param>
         public void getEmpWage(String company)
         {
             foreach(KeyValuePair<String,int> i in TotalWagesList)
@@ -38,9 +55,13 @@ namespace EmployeeWage
                 Console.WriteLine(" Employee wage of Company " + i.Key+ " is: " + i.Value);
             }
         }
+
+        /// <summary>
+        /// Computes the emp wage.
+        /// </summary>
         public void computeEmpWage()
         {
-            foreach (empwage_new x in company_list)
+            foreach (CompanyDetail x in company_list)
             {
                 int empHours = 0;
                 int totalEmpHours = 0;
@@ -48,7 +69,7 @@ namespace EmployeeWage
                 int wageCalculated = 0;
                 int totalDays = 0;
 
-                while (totalEmpHours <= x.current_maxNumberOfHours && totalDays <= x.current_numOfWorkingDays)
+                while (totalEmpHours <= x.maxNumberOfHours && totalDays <= x.numOfWorkingDays)
                 {
                     totalDays++;
 
@@ -67,12 +88,12 @@ namespace EmployeeWage
                             break;
                     }
                     totalEmpHours = totalEmpHours + empHours;
-                    wageCalculated = empHours * x.current_empRatePerHour;
+                    wageCalculated = empHours * x.empRatePerHour;
                     totalEmpWage = totalEmpWage + wageCalculated;
 
 
                 }
-                TotalWagesList.Add(x.current_company,totalEmpWage);
+                TotalWagesList.Add(x.company,totalEmpWage);
                 
 
             }
