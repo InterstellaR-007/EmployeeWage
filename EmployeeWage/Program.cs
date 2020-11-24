@@ -5,7 +5,11 @@ namespace EmployeeWage
     class Program
     {
 
-        
+
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args)
         {
             empwage_new emp1 = new empwage_new();
@@ -17,7 +21,11 @@ namespace EmployeeWage
 
             emp1.computeEmpWage();
 
+<<<<<<< HEAD
             emp1.getEmpWage();
+=======
+            emp1.getEmpWage("thg");
+>>>>>>> uc14_EmpWge_returningTotalWage
 
         }
         
